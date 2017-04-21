@@ -1,0 +1,16 @@
+info:
+  app:
+    name: URL Shortener
+
+server:
+  port: 8080
+
+spring:
+  redis:
+    host: 127.0.0.1
+
+management:
+  context-path: /
+  security:
+    enabled: false
+

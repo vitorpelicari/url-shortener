@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+configurations {
+	// in order to use jetty as embedded server
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile('org.springframework.boot:spring-boot-starter-jetty')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('com.impetus.kundera.client:kundera-redis:3.8')
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
