@@ -1,5 +1,6 @@
 # Project - URL Shortener
 
+[![Build Status](https://travis-ci.org/vitorpelicari/url-shortener.svg?branch=master)](https://travis-ci.org/vitorpelicari/url-shortener)
 
 ## Requirements
 * Java SE 8
